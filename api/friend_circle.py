@@ -5,7 +5,13 @@ from models.FriendGraph import ThirdQuestionFriendCircle
 
 router = APIRouter()
 
-@router.post("/check-friend-circle", tags=["Friend Circle"], summary="Check if users are in the same friend circle.")
+@router.post("/check-friend-circle", tags=["Friend Circle"], summary="Check if users are in the same friend circle.",
+              description='''Test by this input format:->  
+             {
+  "graph_edges_list": [["A","B"], ["B","C"], ["D","E"]],
+  "check_friends": ["A","C"]} 
+'''
+)
 async def check_friend_circle(data: GraphInput):
     try:
         graph_edges_list = data.graph_edges_list

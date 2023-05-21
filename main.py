@@ -6,4 +6,4 @@ app = FastAPI()
 
 app.include_router(autocomplete.router)
 app.include_router(friend_circle.router)
-# app.include_router(users.router)
+app.include_router(users.router)

@@ -1,5 +1,9 @@
 from pymongo import MongoClient
-
+SECRET_KEY = "pranjalkar99"
+client = MongoClient('mongodb+srv://tuned_in:IxEaZSxGrpCQFKPM@tunedin.l8snzrf.mongodb.net/?retryWrites=true&w=majority')
+db = client["TunedIn"]
+users_collection = db["signup"]
+users = db["users"]
 class Database:
     def __init__(self, connection_string):
         self.client = MongoClient(connection_string)
