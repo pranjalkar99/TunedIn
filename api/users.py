@@ -216,7 +216,7 @@ async def upload_resume(username:str, password:str,resume_file: UploadFile = Fil
     # Update the user's resume field in the database
     users_collection.update_one(
         {"username": username},
-        {"$set": {"resume": resume_path}}
+        {"$set": {"resume": str(resume_path)}}
     )
 
     return {"message": "Resume uploaded successfully."}
