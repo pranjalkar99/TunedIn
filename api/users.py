@@ -191,8 +191,15 @@ async def get_profile(username:str, password:str):
     user = authenticate_user(username, password)
     if not user:
         raise HTTPException(status_code=401, detail="Invalid username or password.")
-    user = users_collection.find_one({"username": username})
-    return user
+    users_cursor = users_collection.find_one({"username": username})
+    # return user
+    users = []
+
+    for user in users_cursor:
+        user["_id"] = str(user["_id"])  # Convert ObjectId to string
+        users.append(user)
+
+    return {"users": users}
 
 
 @router.post("/upload-resume", tags=["User"], summary="Upload a resume file")
