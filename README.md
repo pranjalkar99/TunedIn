@@ -42,7 +42,18 @@ $ pip install -r requirements.txt
 $ uvicorn main:app --reload --port 8000
 ```
 
-To run and create Docker(Still in testing ):
+                Then go to /docs for proper documentations of the apis
 
+
+
+OR
+
+
+
+To run and create Docker(Still in testing ):
+```shell
 docker-compose build
+```
+```shell
 docker-compose up
+```
